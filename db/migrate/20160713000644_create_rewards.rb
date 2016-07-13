@@ -1,4 +1,4 @@
-class CreateRewards < ActiveRecord::Migration[5.0]
+class CreateRewards < ActiveRecord::Migration
   def change
     create_table :rewards do |t|
       t.string :description

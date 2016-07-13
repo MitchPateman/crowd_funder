@@ -1,4 +1,4 @@
-class RemovePasswordFromUsers < ActiveRecord::Migration[5.0]
+class RemovePasswordFromUsers < ActiveRecord::Migration
   def change
     remove_column :users, :password
   end

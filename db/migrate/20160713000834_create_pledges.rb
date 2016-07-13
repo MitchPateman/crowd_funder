@@ -1,4 +1,4 @@
-class CreatePledges < ActiveRecord::Migration[5.0]
+class CreatePledges < ActiveRecord::Migration
   def change
     create_table :pledges do |t|
       t.integer :amount

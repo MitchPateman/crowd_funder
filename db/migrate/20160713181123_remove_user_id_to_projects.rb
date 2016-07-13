@@ -1,4 +1,4 @@
-class RemoveUserIdToProjects < ActiveRecord::Migration[5.0]
+class RemoveUserIdToProjects < ActiveRecord::Migration
   def change
     remove_column :projects, :user
   end
