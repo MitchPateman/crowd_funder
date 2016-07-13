@@ -19,7 +19,7 @@ Project.create(name: 'Long Distance Bluetooth Speaker',
 							 goal: 50000,
 							 date: DateTime.strptime("09/09/2016 17:00", "%m/%d/%Y %H:%M"),
 							 url: 'http://img.priceza.com.ph/img/product/5003004/5003004-20160421205425-365010.jpg',
-							 user_id: 1,
+							 user_id: 1
 							 )
 
 Reward.create(name: 'Sticker',
@@ -47,7 +47,8 @@ Project.create(name: 'Silent Computer Fans',
 							description: 'Fans for computers and laptop that are completely silent',
 							goal: 32000,
 							date: DateTime.strptime("10/10/2016 14:00", "%m/%d/%Y %H:%M"),
-							url: 'http://multimedia.bbycastatic.ca/multimedia/products/150x150/102/10289/10289690.jpg'
+							url: 'http://multimedia.bbycastatic.ca/multimedia/products/150x150/102/10289/10289690.jpg',
+							user_id: 1
 							)
 
 Reward.create(name: 'Sticker',
@@ -75,7 +76,8 @@ Project.create(name: 'Hack to use Pokemon GO in Canada',
 							 description: 'Making a program that can access any app store from any country',
 							 goal: 10000,
 							 date: DateTime.strptime("08/09/2016 16:00", "%m/%d/%Y %H:%M"),
-							 url: 'http://i2.wp.com/www.morningledger.com/wp-content/uploads/2016/07/RSZ-PG-2.jpg?resize=300%2C194'
+							 url: 'http://i2.wp.com/www.morningledger.com/wp-content/uploads/2016/07/RSZ-PG-2.jpg?resize=300%2C194',
+							 user_id: 1
 							 )
 Reward.create(name: 'Sticker',
 						 description: 'Get a sticker for a $5 pledge',
@@ -102,7 +104,8 @@ Project.create(name: 'Wireless Phone Charger',
 							description: 'Use your phone within 10 metres of this device and it will charge',
 							goal: 100000,
 							date: DateTime.strptime("12/12/2016 23:59", "%m/%d/%Y %H:%M"),
-							url: 'http://s3.soapbox.nl/uploaded/jongemakers.nl/zh/5623-928fe06e728d563e6fe2771a349ca3e18999df63.png'
+							url: 'http://s3.soapbox.nl/uploaded/jongemakers.nl/zh/5623-928fe06e728d563e6fe2771a349ca3e18999df63.png',
+							user_id: 1
 							)
 
 Reward.create(name: 'Sticker',
@@ -130,7 +133,8 @@ Project.create(name: 'Newspaper Fetching Dog-Bot',
 							description: 'A dog-like robot that runs outside and grabs your newspaper from the front yard',
 							goal: 120000,
 							date: DateTime.strptime("11/09/2016 17:00", "%m/%d/%Y %H:%M"),
-							url: 'https://cdn-img-2.wanelo.com/p/62a/70e/3c7/aa174180138fa01bfd814f1/x354-q80.jpg'
+							url: 'https://cdn-img-2.wanelo.com/p/62a/70e/3c7/aa174180138fa01bfd814f1/x354-q80.jpg',
+							user_id: 1
 							)
 
 Reward.create(name: 'Sticker',
