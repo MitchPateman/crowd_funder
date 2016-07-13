@@ -1,5 +1,5 @@
 
-<h1>Helloo</h1>
+<h1>New Project</h1>
 
   <%= form_for @project do |f|%>
     <% if @project.errors.any? %>
@@ -14,7 +14,7 @@
     <% end %>
 
 
-      <div class="feild">
+      <div class="field">
         <%= f.label :name %><br/>
         <%= f.text_field :name %>
       </div>
@@ -42,7 +42,7 @@
       <div class="field" id="reward-form">
         <h2>Rewards</h2>
 
-        <%= f.fields_for :reward, @rewards do |rewards_fields|%><br/>
+        <%= f.fields_for :rewards, @reward do |rewards_fields|%><br/>
           <div class="field">
             <%= rewards_fields.label :name %>
             <%= rewards_fields.text_field :name %>
