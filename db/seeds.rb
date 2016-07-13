@@ -18,7 +18,7 @@ User.create(name: 'Jim Bean',
 
 
 
-Project.create(name: 'Long Distance Bluetooth Speaker',
+speaker = Project.create(name: 'Long Distance Bluetooth Speaker',
 							 description: 'A Bluetooth speaker that can play music from 100km away',
 							 goal: 50000,
 							 date: DateTime.strptime("09/09/2016 17:00", "%m/%d/%Y %H:%M"),
@@ -29,25 +29,25 @@ Project.create(name: 'Long Distance Bluetooth Speaker',
 Reward.create(name: 'Sticker',
 							description: 'Get a sticker for a $5 pledge',
 							amountThreshold: 5,
-							project_id: 1
+							project_id: speaker.id
 							)
 
 Reward.create(name: 'Hat & T-Shirt',
 							description: 'Get a hat for a $50 pledge',
 							amountThreshold: 5,
-							project_id: 1
+							project_id: speaker.id
 							)
 
 Reward.create(name: '1st Prototype',
 							description: 'Get the first prototype of the speaker for a $150 pledge',
 							amountThreshold: 5,
-							project_id: 1
+							project_id: speaker.id
 							)
 
 
 
 
-Project.create(name: 'Silent Computer Fans',
+fans = Project.create(name: 'Silent Computer Fans',
 							description: 'Fans for computers and laptop that are completely silent',
 							goal: 32000,
 							date: DateTime.strptime("10/10/2016 14:00", "%m/%d/%Y %H:%M"),
@@ -58,25 +58,25 @@ Project.create(name: 'Silent Computer Fans',
 Reward.create(name: 'Sticker',
 							description: 'Get a sticker for a $5 pledge',
 							amountThreshold: 5,
-							project_id: 2
+							project_id: fans.id
 							)
 
 Reward.create(name: 'Hat & T-Shirt',
 							description: 'Get a hat for a $50 pledge',
 							amountThreshold: 5,
-							project_id: 2
+							project_id: fans.id
 							)
 
 Reward.create(name: '1st Prototype',
 							description: 'Get the first prototype of the speaker for a $150 pledge',
 							amountThreshold: 5,
-							project_id: 2
+							project_id: fans.id
 							)
 
 
 
 
-Project.create(name: 'Hack to use Pokemon GO in Canada',
+pokemon = Project.create(name: 'Hack to use Pokemon GO in Canada',
 							 description: 'Making a program that can access any app store from any country',
 							 goal: 10000,
 							 date: DateTime.strptime("08/09/2016 16:00", "%m/%d/%Y %H:%M"),
@@ -86,25 +86,25 @@ Project.create(name: 'Hack to use Pokemon GO in Canada',
 Reward.create(name: 'Sticker',
 						 description: 'Get a sticker for a $5 pledge',
 						 amountThreshold: 5,
-						 project_id: 3
+						 project_id: pokemon.id
 						 )
 
 Reward.create(name: 'Hat & T-Shirt',
 						 description: 'Get a hat for a $50 pledge',
 						 amountThreshold: 5,
-						 project_id: 3
+						 project_id: pokemon.id
 						 )
 
 Reward.create(name: '1st Prototype',
 						 description: 'Get the first prototype of the speaker for a $150 pledge',
 						 amountThreshold: 5,
-						 project_id: 3
+						 project_id: pokemon.id
 						 )
 
 
 
 
-Project.create(name: 'Wireless Phone Charger',
+charger = Project.create(name: 'Wireless Phone Charger',
 							description: 'Use your phone within 10 metres of this device and it will charge',
 							goal: 100000,
 							date: DateTime.strptime("12/12/2016 23:59", "%m/%d/%Y %H:%M"),
@@ -115,25 +115,25 @@ Project.create(name: 'Wireless Phone Charger',
 Reward.create(name: 'Sticker',
 							description: 'Get a sticker for a $5 pledge',
 							amountThreshold: 5,
-							project_id: 4
+							project_id: charger.id
 							)
 
 Reward.create(name: 'Hat & T-Shirt',
 							description: 'Get a hat for a $50 pledge',
 							amountThreshold: 5,
-							project_id: 4
+							project_id: charger.id
 							)
 
 Reward.create(name: '1st Prototype',
 							description: 'Get the first prototype of the speaker for a $150 pledge',
 							amountThreshold: 5,
-							project_id: 4
+							project_id: charger.id
 							)
 
+# PROJECT 5
 
 
-
-Project.create(name: 'Newspaper Fetching Dog-Bot',
+dog = Project.create(name: 'Newspaper Fetching Dog-Bot',
 							description: 'A dog-like robot that runs outside and grabs your newspaper from the front yard',
 							goal: 120000,
 							date: DateTime.strptime("11/09/2016 17:00", "%m/%d/%Y %H:%M"),
@@ -144,17 +144,17 @@ Project.create(name: 'Newspaper Fetching Dog-Bot',
 Reward.create(name: 'Sticker',
 							description: 'Get a sticker for a $5 pledge',
 							amountThreshold: 5,
-							project_id: 5
+							project_id: dog.id
 							)
 
 Reward.create(name: 'Hat & T-Shirt',
 							description: 'Get a hat for a $50 pledge',
 							amountThreshold: 5,
-							project_id: 5
+							project_id: dog.id
 							)
 
 Reward.create(name: '1st Prototype',
 							description: 'Get the first prototype of the speaker for a $150 pledge',
 							amountThreshold: 5,
-							project_id: 5
+							project_id: dog.id
 							)
