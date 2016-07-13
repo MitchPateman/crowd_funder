@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160713033458) do
+ActiveRecord::Schema.define(version: 20160713172403) do
 
   create_table "pledges", force: :cascade do |t|
     t.integer  "amount"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20160713033458) do
     t.integer  "amountThreshold"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "name"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,0 +1,64 @@
+
+<h1>Helloo</h1>
+
+  <%= form_for @project do |f|%>
+    <% if @project.errors.any? %>
+      <div class="error_messages">
+        <h2>Form is invalid</h2>
+        <ul>
+          <% @project.errors.full_messages.each do |message| %>
+            <li><%=message%></li>
+          <%end%>
+        </ul>
+      </div>
+    <% end %>
+
+
+      <div class="feild">
+        <%= f.label :name %><br/>
+        <%= f.text_field :name %>
+      </div>
+
+      <div class="field">
+        <%= f.label :description %><br/>
+        <%= f.text_field :description %>
+      </div>
+
+      <div class="field">
+        <%= f.label :goal %><br/>
+        <%= f.number_field :goal %>
+      </div>
+
+      <div class="field">
+        <%= f.label :date %><br/>
+        <%= f.datetime_field :date %>
+      </div>
+
+      <div class="field">
+        <%= f.label :url %><br/>
+        <%= f.text_field :url %>
+      </div>
+
+      <div class="field" id="reward-form">
+        <h2>Rewards</h2>
+
+        <%= f.fields_for :reward, @rewards do |rewards_fields|%><br/>
+          <div class="field">
+            <%= rewards_fields.label :name %>
+            <%= rewards_fields.text_field :name %>
+          </div>
+
+          <div class="field">
+            <%= rewards_fields.label :description %>
+            <%= rewards_fields.text_field :description %>
+          </div>
+
+          <div class="field">
+            <%= rewards_fields.label :amountThreshold %>
+            <%= rewards_fields.number_field :amountThreshold %>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="actions"><%= f.submit %></div>
+  <% end %>
