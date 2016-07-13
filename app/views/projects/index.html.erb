@@ -1,1 +1,6 @@
 <h1>CrowdFunder! </h1>
+
+<% @projects.each do |project| %>
+	<p> <%= project.name %>, <%= project.date %></p>
+	<img src="<%= project.url %>">
+<% end %>
