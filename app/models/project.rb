@@ -5,9 +5,4 @@ class Project < ActiveRecord::Base
 
   accepts_nested_attributes_for :rewards
 
-  def deadline_past?
-    if date.past?
-      errors.add(:project, "The deadline has passed.")
-    end
-  end
 end
