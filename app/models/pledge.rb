@@ -4,6 +4,8 @@ class Pledge < ActiveRecord::Base
 
   validate :is_project_available
 
+  private
+
   def is_project_available
     if self.project.date.past?
       errors.add("The deadline has passed.")
