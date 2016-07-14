@@ -21,11 +21,11 @@
 		<p> *** reward.project_id: <%= reward.project_id %></p>
 	</li>
 	<% end %>
-  <%= form_for(@pledge) do |f| %>
-    <%= f.label :pledge %>
-    <%= f.number_field :pledge %>
+  <%= form_for([@project, @pledge]) do |f| %>
+    <%= f.label :amount %>
+    <%= f.number_field :amount %>
     <%= f.submit %>
-   <% end %> 
+   <% end %>
 
 
 
