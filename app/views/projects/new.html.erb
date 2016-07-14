@@ -1,5 +1,5 @@
 
-<h1>New Project</h1>
+<h1>Tell us about your project</h1>
 
 <% if current_user %>
   <%= form_for @project do |f|%>
@@ -16,27 +16,27 @@
 
 
       <div class="field">
-        <%= f.label :name %><br/>
+        <%= f.label :name, 'Project Name' %><br/>
         <%= f.text_field :name %>
       </div>
 
       <div class="field">
-        <%= f.label :description %><br/>
-        <%= f.text_field :description %>
+        <%= f.label :description, 'Description' %><br/>
+        <%= f.text_area :description %>
       </div>
 
       <div class="field">
-        <%= f.label :goal %><br/>
+        <%= f.label :goal, 'How much do you need?' %><br/>
         <%= f.number_field :goal %>
       </div>
 
       <div class="field">
-        <%= f.label :date %><br/>
+        <%= f.label :date, 'Last date to pledge' %><br/>
         <%= f.datetime_field :date %>
       </div>
 
       <div class="field">
-        <%= f.label :url %><br/>
+        <%= f.label :url, 'Photo URL' %><br/>
         <%= f.text_field :url %>
       </div>
 
@@ -45,17 +45,17 @@
 
         <%= f.fields_for :rewards, @reward do |rewards_fields|%><br/>
           <div class="field">
-            <%= rewards_fields.label :name %>
+            <%= rewards_fields.label :name, 'Name of Reward' %><br/>
             <%= rewards_fields.text_field :name %>
           </div>
 
           <div class="field">
-            <%= rewards_fields.label :description %>
-            <%= rewards_fields.text_field :description %>
+            <%= rewards_fields.label :description, 'Description' %><br/>
+            <%= rewards_fields.text_area :description %>
           </div>
 
           <div class="field">
-            <%= rewards_fields.label :amountThreshold %>
+            <%= rewards_fields.label :amountThreshold, "Pledge amount req'd" %><br/>
             <%= rewards_fields.number_field :amountThreshold %>
           </div>
         <% end %>

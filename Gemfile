@@ -31,7 +31,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'devise'
+# gem 'devise', '3.5.10' # compatible with my version of ruby 2.0.0
 gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do

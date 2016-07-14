@@ -1,10 +1,22 @@
-<h1>CrowdFunder! </h1>
-<ul>
-	<% @projects.each do |project| %>
-	<li>
-		<p> <%= link_to project.name, project%></p>
-		<p> <%= project.date %></p>
-		<img src= "<%= project.url %>">
-	</li>
-	<% end %>
-</ul>
+
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="normalize.css">
+  <link rel="stylesheet" type="text/css" href="application.css">
+</head>
+
+<body>
+  <h1>CrowdFunder!</h1>
+  <ul>
+	 <% @projects.each do |project| %>
+	   <li>
+  		<p><%= project.name %></p>
+      <p><%= project.date %></p>
+  		<img src="<%= project.url %>">
+      <p><button class="pledge">Make Your Pledge</button></p>
+      <p></p>
+	   </li>
+	 <% end %>
+  </ul>
+</html>
