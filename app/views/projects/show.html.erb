@@ -8,17 +8,17 @@
 <p> Goal: $<%= @project.goal %></p>
 <p> Date: <%= @project.date %></p>
 <p> Created At: <%= @project.created_at %></p>
-<p> *** User ID: <%= @project.user_id %></p><br />
+<p> *** User ID: <%= @project.user.name %></p><br />
 
 <h2>Rewards:</h2>
 
 <ul>
-	<% @rewards.each do |reward| %>
-	<li>
-		<p> <%= reward.name %></p>
-		<p> Description: <%= reward.description %></p>
-		<p> Pledge Amount: <%= reward.amountThreshold %></p>
-		<p> *** reward.project_id: <%= reward.project_id %></p>
-	</li>
-	<% end %>
+  <% @rewards.each do |reward| %>
+  <li>
+    <p> <%= reward.name %></p>
+    <p> Description: <%= reward.description %></p>
+    <p> Pledge Amount: <%= reward.amountThreshold %></p>
+    <p> *** reward.project_id: <%= reward.project_id %></p>
+  </li>
+  <% end %>
 </ul>
