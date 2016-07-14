@@ -16,7 +16,7 @@
 <% end %>
 <% total.inject(:+) %>
 
-<p>$<%= total.inject(:+) %> out of $<%= @project.goal %> raised!!</p>
+<p>$<%= total == [] ? 0 : total.inject(:+) %> out of $<%= @project.goal %> raised!!</p>
 
 <h2>Rewards:</h2>
 
