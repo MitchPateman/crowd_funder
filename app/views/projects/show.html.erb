@@ -31,9 +31,13 @@
   </li>
   <% end %>
 
-  <%= form_for([@project, @pledge]) do |f| %>
-    <%= f.label :amount %>
-    <%= f.number_field :amount %>
-    <%= f.submit %>
-   <% end %>
+  <% if current_user %>
+    <%= form_for([@project, @pledge]) do |f| %>
+      <%= f.label :amount %>
+      <%= f.number_field :amount %>
+      <%= f.submit %>
+     <% end %>
+  <% else %>
+    <p>Please <%= link_to "Sign up", new_user_path %> or <%= link_to "Log in", new_session_path %> to make a pledge!</p>
+  <% end %>
 </ul>
