@@ -1,4 +1,4 @@
-<h1><%="#{@project.name} Project Show Page" %></h1>
+<h1><%="#{@project.name}" %></h1>
 
 <%= link_to "Back to Projects", root_path %>
 
@@ -8,11 +8,10 @@
 <p> Goal: $<%= @project.goal %></p>
 <p> Date: <%= @project.date %></p>
 <p> Created At: <%= @project.created_at %></p>
-<p> *** User ID: <%= @project.user %></p><br />
+<p> *** User ID: <%= @project.user_id %></p><br />
 
 <h2>Rewards:</h2>
 
-<div class="rewards_form">
   <ul>
 	<% @rewards.each do |reward| %>
 	<li>
@@ -23,14 +22,11 @@
 	</li>
 	<% end %>
 
-  <%= form_for([@project, @pledge]) do |f| %>
-    <%= f.label :amount %>
-    <%= f.number_field :amount %>
-    <%= f.submit %>
-   <% end %>
 
+	<%= form_for([@project, @pledge]) do |f| %>
+		<%= f.label :amount %>
+		<%= f.number_field :amount %>
+		<%= f.submit %>
+	 <% end %>
+</ul>
 
-
-<!--   <p><button class="pledge">Make Your Pledge</button></p>
- --></ul>
-</div>
