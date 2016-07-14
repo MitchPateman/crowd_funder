@@ -1,18 +1,23 @@
 <h1>Profile Page</h1>
 
 <section>
-  <div class="profile-info">
-    <%= @user.name %>
-    <%= @user.email %>
-  </div>
+	<div class="profile-info">
+		<%= @user.name %><br />
+		<%= @user.email %>
+	</div>
 
-  <div class="user-projects">
-    <h2>Your Projects</h2>
-    <% @user.projects.each do |project| %></em>
-      <br><img src="<%= project.url %>"
-      <br><strong><%= project.name %></strong>
-      <br><%= project.date %>
-    <% end %>
-  </div>
+	<div class="user-projects">
+		<h2>Your Projects</h2>
+		<ul>
+
+			<% @projects.each do |project| %>
+				<li>
+					<br><img src="<%= project.url %>">
+					<br><strong><%= project.name %></strong>
+					<br><%= project.date %>
+				</li>
+			<% end %>
+		</ul>
+	</div>
 
 </section>
