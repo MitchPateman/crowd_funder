@@ -13,8 +13,8 @@
 			<% @projects.each do |project| %>
 				<li>
 					<br><img src="<%= project.url %>">
-					<br><strong><%= project.name %></strong>
-					<br><%= project.date %>
+					<p><strong><%= link_to project.name, project%></strong></p>
+					<%= project.date %>
 				</li>
 			<% end %>
 		</ul>
