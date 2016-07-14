@@ -24,7 +24,7 @@ class ProjectsController < ApplicationController
 
 	def create
 		@project = Project.new(project_params)
-
+		@project.user = current_user
 		if @project.save
 			redirect_to projects_url
 		else
@@ -38,9 +38,9 @@ class ProjectsController < ApplicationController
 		params.require(:project).permit(:name, :description, :goal, :date, :url, rewards_attributes: [:name, :description, :amountThreshold])
 	end
 
-  def pledge_params
-    params.require(:pledge).permit(:amount)  
-  end  
+	def pledge_params
+		params.require(:pledge).permit(:amount)
+	end
 
 
 
