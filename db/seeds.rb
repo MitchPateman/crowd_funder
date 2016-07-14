@@ -34,13 +34,13 @@ Reward.create(name: 'Sticker',
 
 Reward.create(name: 'Hat & T-Shirt',
 							description: 'Get a hat for a $50 pledge',
-							amountThreshold: 5,
+							amountThreshold: 50,
 							project_id: speaker.id
 							)
 
 Reward.create(name: '1st Prototype',
 							description: 'Get the first prototype of the speaker for a $150 pledge',
-							amountThreshold: 5,
+							amountThreshold: 150,
 							project_id: speaker.id
 							)
 
@@ -63,13 +63,13 @@ Reward.create(name: 'Sticker',
 
 Reward.create(name: 'Hat & T-Shirt',
 							description: 'Get a hat for a $50 pledge',
-							amountThreshold: 5,
+							amountThreshold: 50,
 							project_id: fans.id
 							)
 
 Reward.create(name: '1st Prototype',
 							description: 'Get the first prototype of the speaker for a $150 pledge',
-							amountThreshold: 5,
+							amountThreshold: 150,
 							project_id: fans.id
 							)
 
@@ -91,13 +91,13 @@ Reward.create(name: 'Sticker',
 
 Reward.create(name: 'Hat & T-Shirt',
 						 description: 'Get a hat for a $50 pledge',
-						 amountThreshold: 5,
+						 amountThreshold: 50,
 						 project_id: pokemon.id
 						 )
 
 Reward.create(name: '1st Prototype',
 						 description: 'Get the first prototype of the speaker for a $150 pledge',
-						 amountThreshold: 5,
+						 amountThreshold: 150,
 						 project_id: pokemon.id
 						 )
 
@@ -120,13 +120,13 @@ Reward.create(name: 'Sticker',
 
 Reward.create(name: 'Hat & T-Shirt',
 							description: 'Get a hat for a $50 pledge',
-							amountThreshold: 5,
+							amountThreshold: 50,
 							project_id: charger.id
 							)
 
 Reward.create(name: '1st Prototype',
 							description: 'Get the first prototype of the speaker for a $150 pledge',
-							amountThreshold: 5,
+							amountThreshold: 150,
 							project_id: charger.id
 							)
 
@@ -149,12 +149,12 @@ Reward.create(name: 'Sticker',
 
 Reward.create(name: 'Hat & T-Shirt',
 							description: 'Get a hat for a $50 pledge',
-							amountThreshold: 5,
+							amountThreshold: 50,
 							project_id: dog.id
 							)
 
 Reward.create(name: '1st Prototype',
 							description: 'Get the first prototype of the speaker for a $150 pledge',
-							amountThreshold: 5,
+							amountThreshold: 150,
 							project_id: dog.id
 							)
