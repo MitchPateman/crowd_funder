@@ -1,9 +1,12 @@
 <h1>CrowdFunder! </h1>
-<ul>
-	<% @projects.each do |project| %>
-	<li>
-		<p> <%= project.name %>, <%= project.date %></p>
-		<img src="<%= project.url %>">
-	</li>
-	<% end %>
-</ul>
+
+
+<div id="slideshow">
+<% @projects.each_with_index do |project, index| %>
+  <% if index == 0 %>
+    <img class="active" src="<%= project.url %>">
+  <% end %>
+
+  <img src="<%= project.url %>">
+<% end %>
+</div>
