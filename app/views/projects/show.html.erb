@@ -8,8 +8,7 @@
 <p> Goal: $<%= @project.goal %></p>
 <p> Deadline: <%= @project.date.strftime("%b #{@project.date.day.ordinalize}, %Y %-l:%M %p") %></p>
 <p> Created At: <%= @project.created_at.strftime("%b #{@project.created_at.day.ordinalize}, %Y %-l:%M %p") %></p>
-<p> Created by: <%= @project.user.name %></p><br />
-
+<p> Created by: <%= @project.user.name </p><br />
 <% total = [] %>
 <% @project.pledges.all.each do |pledge| %>
   <% total << pledge.amount %>
