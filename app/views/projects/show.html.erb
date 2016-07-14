@@ -1,1 +1,33 @@
-<h1>Hello world</h1>
+<h1><%="#{@project.name} Project Show Page" %></h1>
+
+<%= link_to "Back to Projects", root_path %>
+
+<img src="<%= @project.url %>">
+<p> <%= @project.name %></p>
+<p> Description: <%= @project.description %></p>
+<p> Goal: $<%= @project.goal %></p>
+<p> Date: <%= @project.date %></p>
+<p> Created At: <%= @project.created_at %></p>
+<p> *** User ID: <%= @project.user_id %></p><br />
+
+<h2>Rewards:</h2>
+
+<ul>
+	<% @rewards.each do |reward| %>
+	<li>
+		<p> <%= reward.name %></p>
+		<p> Description: <%= reward.description %></p>
+		<p> Pledge Amount: <%= reward.amountThreshold %></p>
+		<p> *** reward.project_id: <%= reward.project_id %></p>
+	</li>
+	<% end %>
+  <%= form_for(@pledge) do |f| %>
+    <%= f.label :pledge %>
+    <%= f.number_field :pledge %>
+    <%= f.submit %>
+   <% end %> 
+
+
+
+<!--   <p><button class="pledge">Make Your Pledge</button></p>
+ --></ul>

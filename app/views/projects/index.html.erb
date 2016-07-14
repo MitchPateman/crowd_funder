@@ -1,7 +1,7 @@
 <h1>CrowdFunder! </h1>
 
 
-<div id="slideshow">
+<!-- <div id="slideshow">
 <% @projects.each_with_index do |project, index| %>
   <% if index == 0 %>
     <img class="active" src="<%= project.url %>">
@@ -9,4 +9,35 @@
 
   <img src="<%= project.url %>">
 <% end %>
+</div> -->
+
+
+  <div id="slideshow" class="slideshow">
+  <% @projects.each do |project| %>
+    <div class="slide">
+          <h2 class="slide__title slide__title--preview"><%= project.name %><span class="slide__goal">Goal</span></h2>
+          <div class="slide__project">
+            <div class="slide__inner">
+              <img class="slide__img slide__img--small" src="<%= project.url %>" alt="Some image" />
+              <button class="action action--open" aria-label="View details"><i class="fa fa-plus"></i></button>
+            </div>
+          </div>
+          <div class="slide__content">
+            <div class="slide__content-scroller">
+              <img class="slide__img slide__img--large" src="<%= project.url %>" alt="Some image" />
+              <div class="slide__details">
+                <h2 class="slide__title slide__title--main"><%= project.name %></h2>
+                <p class="slide__description"><%= project.description %></p>
+                <div>
+                  <span class="slide__price slide__price--large">Goal</span>
+                  <button class="button button--buy">Pledge Now!</button>
+                </div>
+              </div><!-- /slide__details -->
+            </div><!-- slide__content-scroller -->
+          </div><!-- slide__content -->
+        </div>
+        <button class="action action--close" aria-label="Close"><i class="fa fa-close"></i></button>
+      </div>
+  </div>
+  <% end %>
 </div>
