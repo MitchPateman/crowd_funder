@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :rewards
   resources :projects do
-    resources :pledges
+    resources :pledges, only: [:new, :create]
   end
 end

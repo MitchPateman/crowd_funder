@@ -6,9 +6,17 @@
 <p> <%= @project.name %></p>
 <p> Description: <%= @project.description %></p>
 <p> Goal: $<%= @project.goal %></p>
-<p> Date: <%= @project.date.strftime("%b #{@project.date.day.ordinalize}, %Y %-l:%M %p") %></p>
+<p> Deadline: <%= @project.date.strftime("%b #{@project.date.day.ordinalize}, %Y %-l:%M %p") %></p>
 <p> Created At: <%= @project.created_at.strftime("%b #{@project.created_at.day.ordinalize}, %Y %-l:%M %p") %></p>
 <p> Created by: <%= @project.user.name %></p><br />
+
+<% total = [] %>
+<% @project.pledges.all.each do |pledge| %>
+  <% total << pledge.amount %>
+<% end %>
+<% total.inject(:+) %>
+
+<p>$<%= total.inject(:+) %> out of $<%= @project.goal %> raised!!</p>
 
 <h2>Rewards:</h2>
 
