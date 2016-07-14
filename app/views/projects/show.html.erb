@@ -1,4 +1,4 @@
-t mast<h1><%="#{@project.name} Project Show Page" %></h1>
+<h1><%="#{@project.name} Project Show Page" %></h1>
 
 <%= link_to "Back to Projects", root_path %>
 
@@ -6,9 +6,9 @@ t mast<h1><%="#{@project.name} Project Show Page" %></h1>
 <p> <%= @project.name %></p>
 <p> Description: <%= @project.description %></p>
 <p> Goal: $<%= @project.goal %></p>
-<p> Date: <%= @project.date %></p>
-<p> Created At: <%= @project.created_at %></p>
-<p> *** User ID: <%= @project.user %></p><br />
+<p> Date: <%= @project.date.strftime("%b #{@project.date.day.ordinalize}, %Y %-l:%M %p") %></p>
+<p> Created At: <%= @project.created_at.strftime("%b #{@project.created_at.day.ordinalize}, %Y %-l:%M %p") %></p>
+<p> Created by: <%= @project.user.name %></p><br />
 
 <h2>Rewards:</h2>
 
@@ -28,4 +28,4 @@ t mast<h1><%="#{@project.name} Project Show Page" %></h1>
     <%= f.number_field :amount %>
     <%= f.submit %>
    <% end %>
- --></ul>
+</ul>
