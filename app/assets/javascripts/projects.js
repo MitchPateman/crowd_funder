@@ -3,7 +3,7 @@ $(function() {
     slides = [],
     active = null;
 
-    // build the slides array from the children of the slideshow.  this will pull in any children, so adjust the scope if needed
+    // build the slides array from the children of the slideshow, pull in any children.
     slideshow.children().each(function(i) {
         var thisSlide = $(this);
 
@@ -21,7 +21,7 @@ $(function() {
         var lastActive = slides[active];
         lastActive.addClass('last-active');
 
-        // find the next s  lide
+        // find the next slide
         active++;
 
         // set to zero if it's too high
