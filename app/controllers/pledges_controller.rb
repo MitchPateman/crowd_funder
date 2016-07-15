@@ -1,27 +1,26 @@
 class PledgesController < ApplicationController
 
-  def new
-    
-    @pledge = @project.pledges.build
-  end
+	def new
 
-  def create
-    @project = Project.find(params[:project_id])
-    @pledge = @project.pledges.build(pledge_params)
-    @pledge.user = current_user
+		@pledge = @project.pledges.build
+	end
 
-    if @pledge.save
-      redirect_to project_url(@pledge.project)
-    else
-      render :new
-    end
-  end
+	def create
+		@project = Project.find(params[:project_id])
+		@pledge = @project.pledges.build(pledge_params)
+		@pledge.user = current_user
 
-  private
+		if @pledge.save
+			redirect_to project_url(@pledge.project), notice: "Pledge Successful"
+		else
+			render :new
+		end
+	end
 
-  def pledge_params
-    params.require(:pledge).permit(:amount)  
-  end  
+	private
+
+	def pledge_params
+		params.require(:pledge).permit(:amount)
+	end
 
 end
-
