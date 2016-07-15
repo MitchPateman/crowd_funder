@@ -5,13 +5,25 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
 </head>
 <body>
-  <% if current_user %>
-    <%= link_to "Home", root_path %> | <%= link_to "Create new project", new_project_path %> | Signed in as <%= link_to current_user.name, user_path(current_user) %> | <%= link_to "Logout", session_path("current"), :method => :delete %>
-  <% else %>
-    <%= link_to "Home", root_path %>  | <%= link_to "Log in", new_session_path  %> | <%= link_to "Sign up", new_user_path %>
-  <% end %>
+  <header>
+    <nav class="nav-bar">
+      <h1 class="title"><%= link_to "Crowdfunder!", root_path %></h1>
+      <ul class="nav-list">
+        <% if current_user %>
+          <li class="nav-item"><%= link_to "Create new project", new_project_path %></li>
+          <li class="nav-item">Signed in as <%= link_to current_user.name, user_path(current_user) %></li>
+          <li class="nav-item"><%= link_to "Logout", session_path("current"), :method => :delete %></li>
+        <% else %>
+          <li class="nav-item"><%= link_to "Log in", new_session_path  %></li>
+          <li class="nav-item"><%= link_to "Sign up", new_user_path %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </header>
+
 
   <% if flash[:notice] %>
     <p id="notice"><%= flash[:notice] %></p>

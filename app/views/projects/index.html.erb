@@ -1,12 +1,26 @@
-<h1>CrowdFunder! </h1>
 
 
- <div id="slideshow">
-<% @projects.each_with_index do |proj, index| %>
+<div id="slideshow">
+<% @projects.each_with_index do |project, index| %>
   <% if index == 0 %>
-    <img class="active" src="<%=link_to image_tag(proj.url), project_url %>">
+    <div class="active" ><img class="slide-image" src="<%= project.url %>"></div>
   <% end %>
 
-  <img src="<%= link_to image_tag(proj.url), project_url %>">
+  <div class="img-container">
+    <img class="slide-image" src="<%= project.url %>">
+  </div>
 <% end %>
 </div>
+
+<ul>
+ <% @projects.reverse.each do |project| %>
+  <div class="proj-container">    
+     <li >
+        <p> <%= link_to project.name, project%></p>
+        <p><%= project.date %></p>
+        <img src="<%= project.url %>">
+        <p></p>
+     </li>
+ </div>
+ <% end %>
+</ul>

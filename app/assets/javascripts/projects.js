@@ -1,27 +1,41 @@
-// $(document).ready(function(){
+$(function() {
+    var slideshow = $('#slideshow'),
+    slides = [],
+    active = null;
 
+    // build the slides array from the children of the slideshow.  this will pull in any children, so adjust the scope if needed
+    slideshow.children().each(function(i) {
+        var thisSlide = $(this);
 
-  function slideSwitch() {
-      var $active = $('#slideshow IMG.active');
+        // if its the active slide then set it to this index
+        if ( thisSlide.hasClass('active') ) active = i;
 
-      if ( $active.length == 0 ) $active = $('#slideshow IMG:last');
+        slides.push( thisSlide );
+    });
 
-      var $next =  $active.next().length ? $active.next()
-          : $('#slideshow IMG:first');
+    // if no active slide, take the last one
+    if ( active === null ) active = slides.length - 1;
 
-      $active.addClass('last-active');
+    function slideSwitch() {
+        // add the last-active class to the previously active slide
+        var lastActive = slides[active];
+        lastActive.addClass('last-active');
 
-      $next.css({opacity: 0.0})
-          .addClass('active')
-          .animate({opacity: 1.0}, 1000, function() {
-              $active.removeClass('active last-active');
-          });
-  }''
+        // find the next s  lide
+        active++;
 
-  $(function() {
-      setInterval( "slideSwitch()", 5000 );
-  });
+        // set to zero if it's too high
+        if ( active >= slides.length ) active = 0;
 
+        var nextActive = slides[active];
 
+        nextActive.css({opacity: 0.0})
+            .addClass('active')
+            .animate({opacity: 1.0}, 1000, function() {
+                lastActive.removeClass('active last-active');
+            });
+    }
 
-// });
+    // start the interval
+    setInterval( slideSwitch, 2500 );
+});
