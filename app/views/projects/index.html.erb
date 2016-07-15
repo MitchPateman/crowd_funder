@@ -1,0 +1,12 @@
+<h1>CrowdFunder! </h1>
+
+
+ <div id="slideshow">
+<% @projects.each_with_index do |proj, index| %>
+  <% if index == 0 %>
+    <img class="active" src="<%=link_to image_tag(proj.url), project_url %>">
+  <% end %>
+
+  <img src="<%= link_to image_tag(proj.url), project_url %>">
+<% end %>
+</div>
