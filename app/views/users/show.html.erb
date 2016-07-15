@@ -2,17 +2,35 @@
 
 <section>
   <div class="profile-info">
-    <%= @user.name %>
+    <%= @user.name %><br />
     <%= @user.email %>
   </div>
 
   <div class="user-projects">
     <h2>Your Projects</h2>
-    <% @user.projects.each do |project| %></em>
-      <br><img src="<%= project.url %>"
-      <br><strong><%= project.name %></strong>
-      <br><%= project.date %>
-    <% end %>
+    <ul>
+
+      <% @projects.each do |project| %>
+        <li>
+          <br><img src="<%= project.url %>">
+          <p><strong><%= link_to project.name, project%></strong></p>
+          <%= project.date %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="user-rewards">
+    <h2>Your rewards</h2>
+    <ul>
+      <% @user.pledges.each do |pledge| %>
+        <% pledge.project.rewards.each do |reward| %>
+          <% if reward.amountThreshold <= pledge.amount %>
+            <li><%= reward.name %></li>
+          <% end %>
+        <% end %>
+      <% end %>
+    </ul>
   </div>
 
 </section>

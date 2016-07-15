@@ -7,6 +7,7 @@
     <img class="active" src="<%= project.url %>">
   <% end %>
 
+<<<<<<< HEAD
   <img src="<%= project.url %>">
 <% end %>
 </div> -->
@@ -41,3 +42,19 @@
   </div>
   <% end %>
 </div>
+=======
+<body>
+  <h1>CrowdFunder!</h1>
+  <ul>
+   <% @projects.reverse.each do |project| %>
+     <li>
+      <p> <%= link_to project.name, project%></p>
+      <p><%= project.date %></p>
+      <img src="<%= project.url %>">
+
+      <p></p>
+     </li>
+   <% end %>
+  </ul>
+</html>
+>>>>>>> 8f2f7c1b303bff6ee07faf04825d2a292ae7e756

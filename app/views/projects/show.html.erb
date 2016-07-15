@@ -1,4 +1,4 @@
-<h1><%="#{@project.name} Project Show Page" %></h1>
+<h1><%="#{@project.name}" %></h1>
 
 <%= link_to "Back to Projects", root_path %>
 
@@ -6,28 +6,38 @@
 <p> <%= @project.name %></p>
 <p> Description: <%= @project.description %></p>
 <p> Goal: $<%= @project.goal %></p>
-<p> Date: <%= @project.date %></p>
-<p> Created At: <%= @project.created_at %></p>
-<p> *** User ID: <%= @project.user_id %></p><br />
+<p> Deadline: <%= @project.date.strftime("%b #{@project.date.day.ordinalize}, %Y %-l:%M %p") %></p>
+<p> Created At: <%= @project.created_at.strftime("%b #{@project.created_at.day.ordinalize}, %Y %-l:%M %p") %></p>
+<p> Created by: <%= @project.user.name %></p><br />
+
+<% total = [] %>
+<% @project.pledges.all.each do |pledge| %>
+  <% total << pledge.amount %>
+<% end %>
+<% total.inject(:+) %>
+
+<p>$<%= total == [] ? 0 : total.inject(:+) %> out of $<%= @project.goal %> raised!!</p>
 
 <h2>Rewards:</h2>
 
 <ul>
-	<% @rewards.each do |reward| %>
-	<li>
-		<p> <%= reward.name %></p>
-		<p> Description: <%= reward.description %></p>
-		<p> Pledge Amount: <%= reward.amountThreshold %></p>
-		<p> *** reward.project_id: <%= reward.project_id %></p>
-	</li>
-	<% end %>
-  <%= form_for(@pledge) do |f| %>
-    <%= f.label :pledge %>
-    <%= f.number_field :pledge %>
-    <%= f.submit %>
-   <% end %> 
 
+  <% @rewards.each do |reward| %>
+  <li>
+    <p> <%= reward.name %></p>
+    <p> Description: <%= reward.description %></p>
+    <p> Pledge Amount: <%= reward.amountThreshold %></p>
+    <p> *** reward.project_id: <%= reward.project_id %></p>
+  </li>
+  <% end %>
 
-
-<!--   <p><button class="pledge">Make Your Pledge</button></p>
- --></ul>
+  <% if current_user %>
+    <%= form_for([@project, @pledge]) do |f| %>
+      <%= f.label :amount %>
+      <%= f.number_field :amount %>
+      <%= f.submit %>
+     <% end %>
+  <% else %>
+    <p>Please <%= link_to "Sign up", new_user_path %> or <%= link_to "Log in", new_session_path %> to make a pledge!</p>
+  <% end %>
+</ul>
