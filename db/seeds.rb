@@ -32,7 +32,7 @@ Reward.create(name: 'Sticker',
 							)
 
 Reward.create(name: 'Hat & T-Shirt',
-							description: 'Get a hat for a $50 pledge',
+							description: 'Get a hat & t-shirt for a $50 pledge',
 							amountThreshold: 50,
 							project_id: speaker.id
 							)
@@ -61,7 +61,7 @@ Reward.create(name: 'Sticker',
 							)
 
 Reward.create(name: 'Hat & T-Shirt',
-							description: 'Get a hat for a $50 pledge',
+							description: 'Get a hat & t-shirt for a $50 pledge',
 							amountThreshold: 50,
 							project_id: fans.id
 							)
@@ -89,7 +89,7 @@ Reward.create(name: 'Sticker',
 						 )
 
 Reward.create(name: 'Hat & T-Shirt',
-						 description: 'Get a hat for a $50 pledge',
+						 description: 'Get a hat & t-shirt for a $50 pledge',
 						 amountThreshold: 50,
 						 project_id: pokemon.id
 						 )
@@ -147,7 +147,7 @@ Reward.create(name: 'Sticker',
 							)
 
 Reward.create(name: 'Hat & T-Shirt',
-							description: 'Get a hat for a $50 pledge',
+							description: 'Get a hat & t-shirt for a $50 pledge',
 							amountThreshold: 50,
 							project_id: dog.id
 							)
