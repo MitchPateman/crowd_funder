@@ -1,0 +1,22 @@
+<div class="field" id="reward-form">
+  <h2>Add Reward</h2>
+
+  <%= form_for ([@project, @reward]) do |f| %>
+    <div class="field">
+      <%= f.label :name, 'Name of Reward' %><br/>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :description, 'Description' %><br/>
+      <%= f.text_area :description %>
+    </div>
+
+    <div class="field">
+      <%= f.label :amountThreshold, "Pledge amount required to receive reward" %><br/>
+      <%= f.number_field :amountThreshold %>
+    </div>
+
+    <div class="actions"><%= f.submit %></div>
+  <% end %>
+</div>

@@ -3,7 +3,8 @@
 <section>
   <div class="profile-info">
     <%= @user.name %><br />
-    <%= @user.email %>
+    <%= @user.email %><br / />
+    <%= link_to "Edit profile", edit_user_path(@user) %>
   </div>
 
   <div class="user-projects">
@@ -14,7 +15,8 @@
         <li>
           <br><img src="<%= project.url %>">
           <p><strong><%= link_to project.name, project%></strong></p>
-          <%= project.date %>
+          <p><%= project.date %></p>
+          <p><%= link_to "Add Reward", new_project_reward_path(project) %></p>
         </li>
       <% end %>
     </ul>
@@ -26,11 +28,23 @@
       <% @user.pledges.each do |pledge| %>
         <% pledge.project.rewards.each do |reward| %>
           <% if reward.amountThreshold <= pledge.amount %>
-            <li><%= reward.name %></li>
+            <li><%= pledge.project.name %>: <%= reward.name %></li>
           <% end %>
         <% end %>
       <% end %>
     </ul>
+  </div>
+
+  <div class="user-pledges">
+    <h2>Your pledges</h2>
+      <% user_total = [] %>
+      <ul>
+      <% @user.pledges.each do |pledge| %>
+        <li>$<%= pledge.amount %> to <%= pledge.project.name %></li>
+        <% user_total << pledge.amount %>
+      <% end %>
+      </ul>
+      <p>Total pledges: $<%= user_total.inject(:+) %></p>
   </div>
 
 </section>
