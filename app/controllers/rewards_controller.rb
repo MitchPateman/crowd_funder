@@ -9,6 +9,7 @@ class RewardsController < ApplicationController
     @reward = @project.rewards.build(reward_params)
     if @reward.save
       flash[:notice] = "Reward created!"
+      redirect_to project_path(@project)
     else
       render :new
     end
@@ -16,6 +17,6 @@ class RewardsController < ApplicationController
 
   private
   def reward_params
-    params.require(:reward).permit(:description, :amountThreshold)
+    params.require(:reward).permit(:name, :description, :amountThreshold)
   end
 end
