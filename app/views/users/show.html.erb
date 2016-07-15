@@ -15,7 +15,8 @@
         <li>
           <br><img src="<%= project.url %>">
           <p><strong><%= link_to project.name, project%></strong></p>
-          <%= project.date %>
+          <p><%= project.date %></p>
+          <p><%= link_to "Add Reward", new_project_reward_path(project) %></p>
         </li>
       <% end %>
     </ul>
