@@ -27,8 +27,7 @@
       <% @user.pledges.each do |pledge| %>
         <% pledge.project.rewards.each do |reward| %>
           <% if reward.amountThreshold <= pledge.amount %>
-            <li><p><%= pledge.project.name %>: <%= reward.name %></p>
-                <p>$<%= pledge.amount %></p></li>
+            <li><%= pledge.project.name %>: <%= reward.name %></li>
           <% end %>
         <% end %>
       <% end %>
@@ -44,7 +43,7 @@
         <% user_total << pledge.amount %>
       <% end %>
       </ul>
-      <p>Total pledges: <%= user_total.inject(:+) %></p>
+      <p>Total pledges: $<%= user_total.inject(:+) %></p>
   </div>
 
 </section>
