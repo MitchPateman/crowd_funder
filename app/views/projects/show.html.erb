@@ -10,13 +10,29 @@
 <p> Created At: <%= @project.created_at.strftime("%b #{@project.created_at.day.ordinalize}, %Y %-l:%M %p") %></p>
 <p> Created by: <%= @project.user.name %></p><br />
 
-<% total = [] %>
+<% total_array = [0] %>
 <% @project.pledges.all.each do |pledge| %>
-  <% total << pledge.amount %>
+  <% total_array << pledge.amount %>
 <% end %>
-<% total.inject(:+) %>
+<% total = total_array.inject(:+) %>
 
-<p>$<%= total == [] ? 0 : total.inject(:+) %> out of $<%= @project.goal %> raised!!</p>
+<p>$<%= total == [0] ? 0 : total %> out of $<%= @project.goal %> raised!!</p>
+<% if total > @project.goal %>
+  <p>Goal Reached!</p>
+<% else %>
+  <p>$<%= @project.goal - total %> more needed to reach goal!!</p>
+<% end %>
+
+<div class="donors">
+  <% if @project.user == current_user %>
+  <h2>Donors:</h2>
+  <ul>
+    <% @project.pledges.each do |pledge| %>
+      <li><%= pledge.user.name unless pledge.user == nil %>: <%= pledge.amount %></li>
+    <% end %>
+  </ul>
+  <% end %>
+</div>
 
 <h2>Rewards:</h2>
 
@@ -27,7 +43,6 @@
     <p> <%= reward.name %></p>
     <p> Description: <%= reward.description %></p>
     <p> Pledge Amount: <%= reward.amountThreshold %></p>
-    <p> *** reward.project_id: <%= reward.project_id %></p>
   </li>
   <% end %>
 
