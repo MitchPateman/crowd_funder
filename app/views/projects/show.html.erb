@@ -40,12 +40,12 @@
 <h2>Rewards:</h2>
 
 <ul>
-
-  <% @rewards.each do |reward| %>
+  <% sorted_rewards = @rewards.sort_by {|x| x.amountThreshold} %>
+  <% sorted_rewards.each do |reward| %>
   <li>
     <p> <%= reward.name %></p>
     <p> Description: <%= reward.description %></p>
-    <p> Pledge Amount: <%= reward.amountThreshold %></p>
+    <p> Pledge Amount: $<%= reward.amountThreshold %></p>
   </li>
   <% end %>
 
