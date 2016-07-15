@@ -27,11 +27,24 @@
       <% @user.pledges.each do |pledge| %>
         <% pledge.project.rewards.each do |reward| %>
           <% if reward.amountThreshold <= pledge.amount %>
-            <li><%= pledge.project.name %>: <%= reward.name %></li>
+            <li><p><%= pledge.project.name %>: <%= reward.name %></p>
+                <p>$<%= pledge.amount %></p></li>
           <% end %>
         <% end %>
       <% end %>
     </ul>
+  </div>
+
+  <div class="user-pledges">
+    <h2>Your pledges</h2>
+      <% user_total = [] %>
+      <ul>
+      <% @user.pledges.each do |pledge| %>
+        <li>$<%= pledge.amount %> to <%= pledge.project.name %></li>
+        <% user_total << pledge.amount %>
+      <% end %>
+      </ul>
+      <p>Total pledges: <%= user_total.inject(:+) %></p>
   </div>
 
 </section>
