@@ -14,12 +14,11 @@
 
 <ul>
  <% @projects.reverse.each do |project| %>
-  <div class="proj-container">    
+  <div class="proj-container">
      <li >
         <p> <%= link_to project.name, project%></p>
         <p><%= project.date %></p>
         <img src="<%= project.url %>">
-        <p></p>
      </li>
  </div>
  <% end %>
