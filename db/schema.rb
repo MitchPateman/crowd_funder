@@ -13,18 +13,10 @@
 
 ActiveRecord::Schema.define(version: 20160713184427) do
 
-  create_table "ar_internal_metadata", primary_key: "key", force: :cascade do |t|
-    t.string   "value"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "ar_internal_metadata", ["key"], name: "sqlite_autoindex_ar_internal_metadata_1", unique: true
-
   create_table "pledges", force: :cascade do |t|
     t.integer  "amount"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "project_id"
   end
@@ -35,16 +27,16 @@ ActiveRecord::Schema.define(version: 20160713184427) do
     t.integer  "goal"
     t.datetime "date"
     t.string   "url"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "user_id"
   end
 
   create_table "rewards", force: :cascade do |t|
     t.string   "description"
     t.integer  "amountThreshold"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "name"
     t.integer  "project_id"
   end
@@ -52,8 +44,8 @@ ActiveRecord::Schema.define(version: 20160713184427) do
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "password_digest"
   end
 

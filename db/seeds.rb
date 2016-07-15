@@ -10,11 +10,10 @@ Project.destroy_all
 Reward.destroy_all
 
 
-User.create(name: 'Jim Bean',
+jim = User.create(name: 'Jim Bean',
 						email: 'jim_bean@gmail.com',
 						password: 'test'
 						)
-
 
 
 
@@ -23,7 +22,7 @@ speaker = Project.create(name: 'Long Distance Bluetooth Speaker',
 							 goal: 50000,
 							 date: DateTime.strptime("09/09/2016 17:00", "%m/%d/%Y %H:%M"),
 							 url: 'http://img.priceza.com.ph/img/product/5003004/5003004-20160421205425-365010.jpg',
-							 user_id: 1
+							 user_id: jim.id
 							 )
 
 Reward.create(name: 'Sticker',
@@ -52,7 +51,7 @@ fans = Project.create(name: 'Silent Computer Fans',
 							goal: 32000,
 							date: DateTime.strptime("10/10/2016 14:00", "%m/%d/%Y %H:%M"),
 							url: 'http://multimedia.bbycastatic.ca/multimedia/products/150x150/102/10289/10289690.jpg',
-							user_id: 1
+							user_id: jim.id
 							)
 
 Reward.create(name: 'Sticker',
@@ -68,7 +67,7 @@ Reward.create(name: 'Hat & T-Shirt',
 							)
 
 Reward.create(name: '1st Prototype',
-							description: 'Get the first prototype of the speaker for a $150 pledge',
+							description: 'Get the first prototype of the computer fans for a $150 pledge',
 							amountThreshold: 150,
 							project_id: fans.id
 							)
@@ -81,7 +80,7 @@ pokemon = Project.create(name: 'Hack to use Pokemon GO in Canada',
 							 goal: 10000,
 							 date: DateTime.strptime("08/09/2016 16:00", "%m/%d/%Y %H:%M"),
 							 url: 'http://i2.wp.com/www.morningledger.com/wp-content/uploads/2016/07/RSZ-PG-2.jpg?resize=300%2C194',
-							 user_id: 1
+							 user_id: jim.id
 							 )
 Reward.create(name: 'Sticker',
 						 description: 'Get a sticker for a $5 pledge',
@@ -96,7 +95,7 @@ Reward.create(name: 'Hat & T-Shirt',
 						 )
 
 Reward.create(name: '1st Prototype',
-						 description: 'Get the first prototype of the speaker for a $150 pledge',
+						 description: 'Get the first version of the pokehack for a $150 pledge',
 						 amountThreshold: 150,
 						 project_id: pokemon.id
 						 )
@@ -109,7 +108,7 @@ charger = Project.create(name: 'Wireless Phone Charger',
 							goal: 100000,
 							date: DateTime.strptime("12/12/2016 23:59", "%m/%d/%Y %H:%M"),
 							url: 'http://s3.soapbox.nl/uploaded/jongemakers.nl/zh/5623-928fe06e728d563e6fe2771a349ca3e18999df63.png',
-							user_id: 1
+							user_id: jim.id
 							)
 
 Reward.create(name: 'Sticker',
@@ -119,13 +118,13 @@ Reward.create(name: 'Sticker',
 							)
 
 Reward.create(name: 'Hat & T-Shirt',
-							description: 'Get a hat for a $50 pledge',
+							description: 'Get a hat & t-shirt for a $50 pledge',
 							amountThreshold: 50,
 							project_id: charger.id
 							)
 
 Reward.create(name: '1st Prototype',
-							description: 'Get the first prototype of the speaker for a $150 pledge',
+							description: 'Get the first prototype of the charger for a $150 pledge',
 							amountThreshold: 150,
 							project_id: charger.id
 							)
@@ -138,7 +137,7 @@ dog = Project.create(name: 'Newspaper Fetching Dog-Bot',
 							goal: 120000,
 							date: DateTime.strptime("11/09/2016 17:00", "%m/%d/%Y %H:%M"),
 							url: 'https://cdn-img-2.wanelo.com/p/62a/70e/3c7/aa174180138fa01bfd814f1/x354-q80.jpg',
-							user_id: 1
+							user_id: jim.id
 							)
 
 Reward.create(name: 'Sticker',
@@ -154,7 +153,7 @@ Reward.create(name: 'Hat & T-Shirt',
 							)
 
 Reward.create(name: '1st Prototype',
-							description: 'Get the first prototype of the speaker for a $150 pledge',
+							description: 'Get the first prototype of the dog-bot for a $150 pledge',
 							amountThreshold: 150,
 							project_id: dog.id
 							)
