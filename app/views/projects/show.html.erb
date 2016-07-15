@@ -9,13 +9,18 @@
 <p> Deadline: <%= @project.date.strftime("%b #{@project.date.day.ordinalize}, %Y %-l:%M %p") %></p>
 <p> Created At: <%= @project.created_at.strftime("%b #{@project.created_at.day.ordinalize}, %Y %-l:%M %p") %></p>
 <p> Created by: <%= @project.user.name %></p><br />
-<% total = [] %>
+<% total_array = [] %>
 <% @project.pledges.all.each do |pledge| %>
-  <% total << pledge.amount %>
+  <% total_array << pledge.amount %>
 <% end %>
-<% total.inject(:+) %>
+<% total = total_array.inject(:+) %>
 
-<p>$<%= total == [] ? 0 : total.inject(:+) %> out of $<%= @project.goal %> raised!!</p>
+<p>$<%= total == [] ? 0 : total %> out of $<%= @project.goal %> raised!!</p>
+<% if total > @project.goal %>
+  <p>Goal Reached!</p>
+<% else %>
+  <p>$<%= @project.goal - total %> more needed to reach goal!!</p>
+<% end %>
 
 <h2>Rewards:</h2>
 
