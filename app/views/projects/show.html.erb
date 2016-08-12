@@ -1,62 +1,63 @@
 <%= link_to "Back to Projects", root_path %>
 
 <section class="project-container">
-  <div class="name-image">
-    <h1><%="#{@project.name}" %></h1>
-    <img src="<%= @project.url %>">
-  </div>
-  <div class="proj-info">
-    <p> Description: <%= @project.description %></p>
-    <p> Goal: $<%= @project.goal %></p>
-    <p> Deadline: <%= @project.date.strftime("%b #{@project.date.day.ordinalize}, %Y %-l:%M %p") %></p>
-    <p> Created At: <%= @project.created_at.strftime("%b #{@project.created_at.day.ordinalize}, %Y %-l:%M %p") %></p>
-    <p> Created by: <%= @project.user.name %></p><br />
-  </div>
+	<div class="name-image">
+		<h1><%="#{@project.name}" %></h1>
+		<img src="<%= @project.url %>">
+	</div>
+	<div class="proj-info">
+		<p> Description: <%= @project.description %></p>
+		<p> Goal: $<%= @project.goal %></p>
+		<p> Deadline: <%= @project.date.strftime("%b #{@project.date.day.ordinalize}, %Y %-l:%M %p") %></p>
+		<p> Created At: <%= @project.created_at.strftime("%b #{@project.created_at.day.ordinalize}, %Y %-l:%M %p") %></p>
+		<p> Created by: <%= @project.user.name %></p><br />
+	</div>
+
 <% total_array = [0] %>
 <% @project.pledges.all.each do |pledge| %>
-  <% total_array << pledge.amount %>
+	<% total_array << pledge.amount %>
 <% end %>
 <% total = total_array.inject(:+) %>
 
 <p>$<%= total == [0] ? 0 : total %> out of $<%= @project.goal %> raised!!</p>
 <% if total > @project.goal %>
-  <p>Goal Reached!</p>
+	<p>Goal Reached!</p>
 <% else %>
-  <p>$<%= @project.goal - total %> more needed to reach goal!!</p>
+	<p>$<%= @project.goal - total %> more needed to reach goal!!</p>
 <% end %>
 </section>
 
 <div class="donors">
-  <% if @project.user == current_user %>
-  <h2>Donors:</h2>
-  <ul>
-    <% @project.pledges.each do |pledge| %>
-      <li><%= pledge.user.name unless pledge.user == nil %>: <%= pledge.amount %></li>
-    <% end %>
-  </ul>
-  <% end %>
+	<% if @project.user == current_user %>
+	<h2>Donors:</h2>
+	<ul>
+		<% @project.pledges.each do |pledge| %>
+			<li><%= pledge.user.name unless pledge.user == nil %>: <%= pledge.amount %></li>
+		<% end %>
+	</ul>
+	<% end %>
 </div>
 
 <h2>Rewards:</h2>
 
 <ul>
-  <% sorted_rewards = @rewards.sort_by {|x| x.amountThreshold} %>
-  <% sorted_rewards.each do |reward| %>
-  <li>
-    <p> <%= reward.name %></p>
-    <p> Description: <%= reward.description %></p>
-    <p> Pledge Amount: $<%= reward.amountThreshold %></p>
-  </li>
-  <% end %>
+	<% sorted_rewards = @rewards.sort_by {|x| x.amountThreshold} %>
+	<% sorted_rewards.each do |reward| %>
+	<li>
+		<p> <%= reward.name %></p>
+		<p> Description: <%= reward.description %></p>
+		<p> Pledge Amount: $<%= reward.amountThreshold %></p>
+	</li>
+	<% end %>
 
-  <% if current_user %>
-    <%= form_for([@project, @pledge]) do |f| %>
-      <%= f.label :amount %>
-      <%= f.number_field :amount %>
-      <%= f.submit %>
-     <% end %>
-  <% else %>
-    <p>Please <%= link_to "Sign up", new_user_path %> or <%= link_to "Log in", new_session_path %> to make a pledge!</p>
-  <% end %>
+	<% if current_user %>
+		<%= form_for([@project, @pledge]) do |f| %>
+			<%= f.label :amount %>
+			<%= f.number_field :amount %>
+			<%= f.submit %>
+		 <% end %>
+	<% else %>
+		<p>Please <%= link_to "Sign up", new_user_path %> or <%= link_to "Log in", new_session_path %> to make a pledge!</p>
+	<% end %>
 </ul>
 </section>
